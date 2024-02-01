@@ -1,0 +1,2022 @@
+01)++reverseString++
+02)++reverseInteger++
+03)++reverseWords++
+04)++reverseLetter++
+05)++SortStringChar++
+06)++bubbleSort++ 
+07)++RemoveDuplicateLetter++
+08)++removeDuplicateNumber1++
+09)++removeDuplicateNumber2++
+10)++removeDuplicateNumber3++
+11)++removeSpecialCharacter++
+12)++RemoveAllWhiteSpace++
+13)++repeatedNumberSee++
+14)++CountWord++
+14)++DisplayDuplicateWord++
+15)++Employee_salary25++
+16)++StringEquals++
+17)++FindThirdLargest++
+18)++employee++
+19)++PalindromNumber++
+19)++PalindromName++
+20)++swaptwo++
+21)++PrimeNumber++
+22)++evenOdd++
+23)++Factorial+
+24)++fibonacciSeries
+25)++armstrong++
++++++++ java 8 ++++++ 
+26)++limitSkip++
+27)++Finterface++
+28)++Iterator++
+29)++EmployeeSalary++
+30)++Read and write file++
+31)++Multithreading++
+32)Exceptional
+33)Infinity series://5,25,30,125,130,625,630...
+35)++LeapYear++
+34)++JaVaPraGR(ChangeCase)++
+36)++reverse a string using recursion++
+36)++RecursionReverseString++
+36)++RecursionReverseStringPalindrom++
+37)++ArraytoArrayList++
+38)how do you create an immutable class in
+39)++Split++
+42)++CountEvenNumbers,suffix,limit++
+43)++Given an employee list,sort employees based on their salaries in desc order?\n++
+44)++Fetch top 3 salaried employee details?++
+45)++fetch all employees having salary less than 3rd highest salary?++
+46)++find sum all elements in an array using java 8?
+47)++find sum all even elements in an array using java 8++	
+48)++find count all even elements in an array using java 8?	
+49)++LongestWord++
+50)++Convert first half of the string in lowercase and second half in upper case++
+51)++Count Strings whose length is greater than 3 in List++
+52)++random random integers within a specific range in java?++
+53)++descending order using stream++
+
+MYSQL
+1)++Find Names of the Employees Whose Department Have Number of Employees Less than 2++
+2)++Second highset salary++
+3)highset salary
+4)++This is the Query for to find nth Salary++
+
+01)++reverseString++
+package com.in.ashokIT.interview;
+import java.util.Scanner;
+public class reverseString{
+	public static void main(String[] args) {
+		
+		//Approach 1;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter any name");
+		String str=sc.next();
+		String revereString="";
+		
+		for(int i=str.length()-1;i>=0;i--) {
+			revereString=revereString+str.charAt(i);
+			
+		}
+		System.out.println("original String :"+str);
+		System.out.println("reverse string :"+revereString);
+		
+		//Approach
+		StringBuffer sb=new StringBuffer(str);
+		System.out.println(" Approach 2:  "+sb.reverse());
+	
+		//Approach
+		StringBuilder sb2=new StringBuilder(str);
+		System.out.println(" Approach 3:  "+sb2.reverse());
+		
+		//usig stream
+		String str1="Java";
+	List<String> abc = Arrays.asList(str1).stream().map(s->new StringBuilder(s).reverse().toString()).collect(Collectors.toList());
+	System.out.println(abc);
+	}
+}
+
+02)++reverseInteger++
+
+package com.in.ashokIT.interview_company;
+
+import java.util.Scanner;
+
+public class reverseInteger{
+
+
+	public static void main(String[] args) {
+	int[] arr=new int[] {1,1,2,2,3,3};
+	int temp;
+	for(int i=arr.length-1;i>=0;i--) {
+		System.out.println(arr[i]);
+	}
+	
+	//using stream
+		List<Integer>list=Arrays.asList(1,4,5,6,7,8,9);
+	List<Integer>list1=list.stream().sorted((o1,o2)->(int)(o2-o1))
+			.collect(Collectors.toList());
+			System.out.println(list1);
+	
+}
+
+}
+
+
+03)++reverseWords++
+import java.util.regex.Pattern;
+
+class reverseWORD{
+    static String reverseWords(String str)
+    {
+        Pattern pattern = Pattern.compile("\\s");
+        String[] temp = pattern.split(str);
+        String result = "";
+        for (int i = 0; i < temp.length; i++) {
+            if (i == temp.length - 1)
+                result = temp[i] + result;
+            else
+                result = " " + temp[i] + result;
+        }
+        return result;
+    }
+    public static void main(String[] args)
+    {
+       String s2 = "I love Java Programming";
+        System.out.println(reverseWords(s2));
+		
+	//usig stream
+	String str1="Java";
+	List<String> abc = Arrays.asList(str1).stream().map(s->new StringBuilder(s).reverse().toString()).collect(Collectors.toList());
+	System.out.println(abc);
+    }
+}
+
+04)++reverseLetter++
+import java.util.Scanner;
+
+public class reverseLetter {
+public static void main(String[] args) {
+		
+		//Approach 1;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter any name");
+//		String str="hi hello how are you";
+		String str=sc.next();
+		String revereString="";
+		
+		for(int i=str.length()-1;i>=0;i--) {
+			revereString=revereString+str.charAt(i);
+			
+		}
+		System.out.println("original String :"+str);
+		System.out.println("reverse string :"+revereString);
+		
+		//Approach
+		StringBuffer sb=new StringBuffer(str);
+		System.out.println(" Approach 2:  "+sb.reverse());
+	
+		//Approach
+		StringBuilder sb2=new StringBuilder(str);
+		System.out.println(" Approach 3:  "+sb2.reverse());
+	}
+}
+
+05)++SortStringChar++
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+public class SortStringChar {
+//arr[i] =a and arr[j]=j value will be change for temp.
+	public static void main(String[] args) {
+		String str="java";
+		
+		char arr[]=str.toCharArray();
+		char temp;
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]>arr[j]) {
+					 temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}	
+	}
+		
+	System.out.println(new String(arr));
+	
+	
+	//USING STREAM
+		//using stream
+		Stream<String> wordStream = Stream.of("ACDE");
+		wordStream.sorted()	//ascending
+				  .forEach(x->System.out.println(x));
+				  
+				  
+	//Approach-2
+	String str1 ="rock";
+	char[] charArray=str1.toCharArray();
+	Arrays.sort(charArray);
+	
+	//	Approach 3
+	List<Integer>list=Arrays.asList(20,30,40,60,80,60,100,80,90);
+	Set<Integer>set=new HashSet<>();
+	System.out.println("using collections");
+	list.stream().filter(x->set.add(x)).forEach(x->System.out.println(x));//we can remove duplicate values
+	}
+}
+
+06)++bubbleSort++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+
+public class package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+
+public class bubbleSort {
+
+	public static void main(String[] args) {
+		
+		int arr[]= {1,2,3,6,7,8,9,6,7,8};
+		int temp=0;
+		
+		for(int i=0;i<arr.length-1;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]>arr[j]) {
+					 temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(arr));
+		
+	}
+ }
+
+07)++RemoveDuplicateLetter++
+package com.in.ashokIT;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class RemoveDuplicateKeys {
+public static void main(String[] args) {
+	
+	String str="PROGRAMMING";
+	//Approach-1//java 8
+	
+	StringBuilder sb1=new StringBuilder();
+	str.chars().distinct().forEach(c->sb1.append((char)c));//lambda expression
+	System.out.println(sb1);
+	
+	//Approach-2
+	StringBuilder sb2=new StringBuilder();
+	for(int i=0;i<str.length();i++) {
+		char ch= str.charAt(i);
+		int idx=str.indexOf(ch,i+1);
+		if(idx==-1) {
+			sb2.append(ch);
+			
+		}
+	}
+	System.out.println(sb2);
+	
+	//Approach-3
+	char[] arr=str.toCharArray();
+	StringBuilder sb3=new StringBuilder();
+	for(int i=0;i<arr.length;i++) {
+		boolean reapted =false;
+		for(int j=i+1;j<arr.length;j++) {
+			if(arr[i]==arr[j]) {
+				reapted =true;
+				break;
+			}
+		}
+		if(!reapted) {
+			sb3.append(arr[i]);
+		}
+	}
+	System.out.println(sb3);
+	//Approach-4
+	List<String>list=Arrays.asList("apple","banana","apple","orange","apple");
+	Set<String>set=new HashSet<>();
+	List<String> map=list.stream().filter(x->!set.add(x)).collect(Collectors.toList());
+	System.out.println(map);
+	
+	//Approach-5
+	StringBuilder sb4=new StringBuilder();
+	Set<Character>set=new LinkedHashSet();
+	for(int i=0;i<str.length();i++) {
+		set.add(str.charAt(i));
+	}
+	for(Character c:set) {
+		sb4.append(c);
+	}
+	System.out.println(sb4);
+	}
+}
+ONE MORE Example
+import java.util.*;
+ 
+class GFG 
+{
+    static String removeDuplicate(char str[], int n)
+    {
+        // Used as index in the modified string
+        int index = 0;
+ 
+        // Traverse through all characters
+        for (int i = 0; i < n; i++)
+        {
+ 
+            // Check if str[i] is present before it 
+            int j;
+            for (j = 0; j < i; j++) 
+            {
+                if (str[i] == str[j])
+                {
+                    break;
+                }
+            }
+ 
+            // If not present, then add it to
+            // result.
+            if (j == i) 
+            {
+                str[index++] = str[i];
+            }
+        }
+        return String.valueOf(Arrays.copyOf(str, index));
+    }
+ 
+    // Driver code
+    public static void main(String[] args)
+    {
+        char str[] = "geeksforgeeks".toCharArray();
+        int n = str.length;
+        System.out.println(removeDuplicate(str, n));
+    }
+}
+08)++removeDuplicateNumber1++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class removeDuplicateNumber {
+
+	public static void main(String[] args) {
+		List<Integer>list =Arrays.asList(10,28,87,10,20,76,28,80,80,80);
+		Set<Integer>set=new HashSet<>();
+		list.stream().filter(x->set.add(x)).forEach(x->System.out.println(x));
+	}
+
+}
+
+09)++removeDuplicateNumber2++
+public class removeDuplicateNumber1 {
+public static void main(String[] args) {
+	int[] a= {1,2,2,3,3,4,4,5,5,7,7,7,7,6,6,6};
+	int[]temp=new int[a.length];
+	int j=0;
+	for(int i=0;i<a.length-1;i++) {
+		if(a[i]!=a[i+1]) {
+			temp[j]=a[i];
+			j++;
+		}
+	}
+	temp[j]=a[a.length-1];
+	for(int i=0;i<temp.length;i++) {
+		System.out.println(temp[i]+"");
+	}
+}
+}
+
+10)++removeDuplicateNumber3++
+public class removeDuplicateNumber2 {
+
+
+	public static void main(String[] args) {
+		int a[]= {1,1,2,2,3,3,4,4};
+		a=duplicateElement(a);
+		for(int i=0;i<a.length;i++) {
+			System.out.print(" "+a[i]);
+		}
+	}
+	private static int[] duplicateElement(int[] a) {
+		for(int i=0;i<a.length;i++) {
+			for(int j=i+1;j<a.length;j++) {
+				if(a[i]==a[j]) {
+					a=deleteElement(a,j);
+				}
+			}
+		}
+		return a;
+	}
+	private static int[] deleteElement(int[] a, int Index) {
+		if(Index<0||Index>a.length) {
+		System.out.println("Array out of bound");	
+		return a;
+		}
+		int result[]=new int[a.length-1];
+		for(int i=0;i<result.length;i++) {
+			if(i<Index) {
+				result[i]=a[i];
+				
+			}else {
+				result[i]=a[i+1];
+			}
+		}
+		return result;
+	}
+}
+
+11)++removeSpecialCharacter++
+package com.in.ashokIT.interview;
+
+import java.util.Scanner;
+
+//Input:$ja!va$&st%ar
+//output:javastar
+public class removeSpecialCharacter {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter any special charcter with name");
+		
+		String str=sc.next();
+		
+		//Approach-1(replaceAll()method)
+		String plainStr =	str.replaceAll("[^a-zA-z0-9]", "");
+		System.out.println(plainStr);
+	}
+	
+}
+
+12)++RemoveAllWhiteSpace++
+package com.in.ashokIT.interview;
+
+import java.util.Scanner;
+
+public class RemoveAllWhiteSpace {
+
+	public static void main(String[] args) {
+		
+//		Scanner sc=new Scanner(System.in);
+//		System.out.println("enter any special charcter with name");
+//		
+//		String str=sc.next();
+		
+		String str="j a va s tar ";
+		String str1=str.replaceAll("\\s", "");
+		System.out.println(str1);
+	
+		
+//		String trimmedStr=str.trim();
+		
+//		System.out.println(trimmedStr);
+		
+		//trim method its using for leading and trailing spaces	
+	}
+}
+
+13)++repeatedNumberSee++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class repeatedNumberSee {
+public static void main(String[] args) {
+	
+	List<Integer>list =Arrays.asList(10,28,87,10,20,76,28,80,80,80);
+	Set<Integer>set=new HashSet<>();
+	list.stream().filter(x->!set.add(x)).collect(Collectors.toSet()).forEach(x->System.out.println(x));
+}
+}
+
+14)++CountWord++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class CountWord {
+
+	public static void main(String[] args) {
+		String str="welcome to code code";
+		List<String>list=Arrays.asList(str.split(" "));
+		Map<String, Long>map=list.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		System.out.println(map);
+	}
+
+}
+
+14)++DisplayDuplicateWord++
+public class DisplayDuplicateWord {    
+    public static void main(String[] args) {    
+        String string = "Big black bug bit a big black dog on his big black nose";    
+        int count;    
+            
+        //Converts the string into lowercase    
+        string = string.toLowerCase();    
+            
+        //Split the string into words using built-in function    
+        String words[] = string.split(" ");    
+            
+        System.out.println("Duplicate words in a given string : ");     
+        for(int i = 0; i < words.length; i++) {    
+            count = 1;    
+            for(int j = i+1; j < words.length; j++) {    
+                if(words[i].equals(words[j])) {    
+                    count++;    
+                    //Set words[j] to 0 to avoid printing visited word    
+                    words[j] = "0";    
+                }    
+            }    
+                
+            //Displays the duplicate word if count is greater than 1    
+            if(count > 1 && words[i] != "0")    
+                System.out.println(words[i]);    
+        }    
+    }    
+}    
+
+15)++Employee_salary25++
+
+package com.in.ashokIT.interview_company;
+
+another class in same package
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Employee_salary25 {
+
+	public static void main(String[] args) {
+		List<Employee>employees=new ArrayList<Employee>();
+		Employee e1=new Employee("Abc",21,10000);
+		Employee e2=new Employee("Pqr",26,12000);
+		Employee e3=new Employee("Mno",28,15000);
+		Employee e4=new Employee("JKL",22,19000);
+		Employee e5=new Employee("XYZ",23,17000);
+		
+		employees.add(e1);
+		employees.add(e2);
+		employees.add(e3);
+		employees.add(e4);
+		employees.add(e5);
+List<Employee>increamentedSalary=employees.stream().map(e->{
+	if(e.getAge()>25) {
+		e.setSalary(e.getSalary()*1.10);
+	}
+	return e;
+}).collect(Collectors.toList());
+System.out.println("Increamented Salary!!");
+System.out.println(increamentedSalary);
+
+	}
+
+}
+
+package com.in.ashokIT.interview_company;
+
+public class Employee {
+private String name;
+private int age;
+private double salary;
+
+public Employee() {
+}
+public Employee(String name, int age, double salary) {
+	super();
+	this.name = name;
+	this.age = age;
+	this.salary = salary;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getAge() {
+	return age;
+}
+public void setAge(int age) {
+	this.age = age;
+}
+public double getSalary() {
+	return salary;
+}
+public void setSalary(double salary) {
+	this.salary = salary;
+}
+@Override
+public String toString() {
+	return "Employee [name=" + name + ", age=" + age + ", salary=" + salary + "]";
+}
+}
+
+16)++StringEquals++
+
+package com.in.ashokIT.interview_company;
+
+public class StringEquals {
+
+	public static void main(String[] args) {
+		String str1="Abc";
+		String str2="Abc";
+		String str3=new String("abc");
+		
+		System.out.println(str1==str2);//true
+		System.out.println(str1==str3);//false
+		System.out.println(str1.equals(str3));//false
+		System.out.println(str1.equalsIgnoreCase(str3));//true
+
+	}
+}
+
+
+17)++FindThirdLargest++
+public class thirdLargest {
+	public static int third(int[]a,int total) {
+		for(int i=0;i<total;i++) {
+			for(int j=i+1;j<total;j++) {
+				if(a[i]>a[j]) {
+					int temp=a[i];
+					a[i]=a[j];
+					a[j]=temp;
+				}
+			}
+		}
+		return a[total-3];
+	}
+	public static void main(String[] args) {
+		int[]a=new int[] {3,4,5,8,9,11,12,13,18,9,20,40};
+		System.out.println("third largest "+ third(a,12));
+	}
+
+}
+
+18)++Employee++
+package com.in.ashokIT.interview_company;
+
+public class Employee {
+private String name;
+private int age;
+private double salary;
+private String department;
+private String gender;
+private int yearOfJoining;
+
+public Employee() {}
+
+public Employee(String name, int age, double salary, String department, String gender, int yearOfJoining) {
+	super();
+	this.name = name;
+	this.age = age;
+	this.salary = salary;
+	this.department = department;
+	this.gender = gender;
+	this.yearOfJoining = yearOfJoining;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public int getAge() {
+	return age;
+}
+
+public void setAge(int age) {
+	this.age = age;
+}
+
+public double getSalary() {
+	return salary;
+}
+
+public void setSalary(double salary) {
+	this.salary = salary;
+}
+
+public String getDepartment() {
+	return department;
+}
+
+public void setDepartment(String department) {
+	this.department = department;
+}
+
+public String getGender() {
+	return gender;
+}
+
+public void setGender(String gender) {
+	this.gender = gender;
+}
+
+public int getYearOfJoining() {
+	return yearOfJoining;
+}
+
+public void setYearOfJoining(int yearOfJoining) {
+	this.yearOfJoining = yearOfJoining;
+}
+
+@Override
+public String toString() {
+	return "Employee [name=" + name + ", age=" + age + ", salary=" + salary + ", department=" + department + ", gender="
+			+ gender + ", yearOfJoining=" + yearOfJoining + "]";
+}
+
+
+}
+
+
+19)++PalindromNumber++
+package com.in.ashokIT.interview_company;
+
+import java.util.Scanner;
+
+public class Palindrom {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter any number");
+
+	int number =sc.nextInt();
+	int temp,r;
+	int sum=0;
+	temp=number;
+	while(number!=0) {
+		r=number%10;
+		sum=(sum*10)+r;
+		number=number/10;
+	}
+if(temp==sum) {
+	System.out.println("Palindrom number");
+}
+else {
+System.out.println("Palindrom is not number");
+}
+}
+}
+
+19)++PalindromName++
+public class Palindrome {	
+	public static void main(String args[]){
+		String checkPalindrome = "Malayalam";
+		int length = checkPalindrome.length()/2;
+		int mid = length;
+		for(int i=0; i<=mid;i++){
+			if( checkPalindrome.charAt(mid-1) == checkPalindrome.charAt(mid+1)){
+				//String s1 = (checkPalindrome.substring(mid-i)) + (checkPalindrome.substring(mid+i));
+				System.out.println(checkPalindrome.subSequence(mid-i, mid+(i+1)));
+			}		  
+		}
+	}
+}
+20)++swaptwo++
+
+package com.in.ashokIT.interview_company;
+
+public class swaptwo {
+public static void main(String[] args) {
+	int a=10;
+	int b=2;
+	System.out.println("before swap is a="+a+",b:"+b);
+	a=a+b;
+	b=a-b;
+	a=a-b;
+	System.out.println("after swap is a="+a+",b="+b);
+}
+}
+21)++PrimeNumber++
+package com.in.ashokIT.mostly_asked_for_interview;
+
+import java.util.Scanner;
+
+public class PrimeNumber {
+	public static void main(String[] args) {
+//using scanner format
+//		try(Scanner sc=new Scanner(System.in)){
+//			System.out.println("enter any number");
+//			int number =sc.nextInt();
+//			boolean isPrime=false;
+//			for(int i=2;i<=number;i++) {
+//				if(number%2==0) {
+//					isPrime=false;
+//					break;
+//				}
+//				else {
+//					isPrime=true;
+//				}
+//			}
+//			if(isPrime) {
+//				System.out.println(+number+ " is Prime number");
+//			}
+//				else {
+//					System.out.println(+number+ "is not Prime number");
+//				}
+//			}
+		
+		
+		//++ using number
+		int number=4;
+		boolean isPrime=false;
+		for(int i=2;i<=number;i++) {
+			if(number%2==0) {
+				isPrime=false;
+				break;
+			}
+			else {
+				isPrime=true;
+			}
+		}
+		if(isPrime) {
+			System.out.println(+number + " is Prime number");
+		}
+			else {
+				System.out.println(+number + " is not Prime number");
+			}
+		}
+}
+
+22)++evenOdd++
+package com.in.ashokIT.interview_company;
+
+import java.util.Scanner;
+
+public class evenOdd {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter any number");
+	int number =sc.nextInt();
+//	int number =6;
+	if(number%2==0) {
+		System.out.println(+number+ " is even");
+	}else {
+		System.out.println(+number+ "is odd");
+	}
+}
+}
+
+23)++Factorial+
+package com.in.ashokIT.interview_company;
+
+import java.util.Scanner;
+
+public class Factorial {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter any number");
+		int number =sc.nextInt();
+		int fact=1;
+		for(int i=number;i>=1;i--) {
+			fact=fact*i;
+		}
+System.out.println(fact);
+	}
+
+}
+
+24)++fibonacciSeries++
+package com.in.ashokIT.interview_company;
+
+import java.util.Scanner;
+
+public class fibonacciSeries {
+
+	public static void main(String[] args) {
+		int a=0;
+		int b=1;
+		for(int i=1;i<=10;i++) {
+			System.out.println(+b+",");
+		int	c=a+b;
+			a=b;
+			b=c;
+		}
+	}
+}
+
+25)++armstrong++ notes
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class armstrong {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter any number");
+
+		int number =sc.nextInt();
+		int oringal_number=number;
+		int length=String.valueOf(number).length();
+		double output=0.0;
+		while(number>0){
+			int rem=number%10;
+			number=number/10;
+			output=output+Math.pow(rem,length);
+		}
+		if(oringal_number==output) {
+			System.out.println(oringal_number+" is armstrong");
+		}else {
+			System.out.println(oringal_number+" is not arm strong");
+		}
+	}
+}
+
+26)++limitSkip++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class limitSkip {
+public static void main(String[] args) {
+	List<Integer>list =Arrays.asList(10,28,87,10,20,76,28,80,80,80);
+	System.out.println("limit");
+	list.stream().limit(5).forEach(x->System.out.println(x));
+	System.out.println("limit");
+	list.stream().skip(5).forEach(x->System.out.println(x));
+}
+}
+
+27)++Finterface++
+package com.in.ashokIT.interview_company;
+
+public interface Finterface {
+
+	public int multiply(int a,int b);
+}
+//another class in same package
+package com.in.ashokIT.interview_company;
+
+public class FinterfaceRunner {
+
+	public static void main(String[] args) {
+		Finterface total=(a,b)->a*b;
+		System.out.println(total.multiply(7, 6));
+	}
+	
+}
+
+28)++Iterator++
+public class Iterator {
+public static void main(String[] args) {
+	List<String>mobiles=new ArrayList<>();
+	mobiles.add("redmi");
+	mobiles.add("realme");
+	mobiles.add("vodaphone");
+	
+	System.out.println(mobiles);
+	
+	Iterator<String>itr=mobiles.iterator();
+	while(itr.hasNext()){
+		String phones=itr.next();
+		if(phones.equals("vodaphone")) {
+			itr.remove();
+			System.out.println(mobiles);
+		}
+	}
+}
+}
+
+29)++EmployeeSalary++
+package com.in.ashokIT.interview_company;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Java8InterviewQuestions {
+
+	public static void main(String[] args) {
+		List<Employee>empList= Arrays.asList(new Employee("John",28,50000,"hr","male",2014),
+				new Employee("Roma",26,51000,"tech","female",2015),
+				new Employee("mathew",31,60000,"hr","male",2014),
+				new Employee("John",29,50000,"ops","male",2014),
+				new Employee("linda",24,30000,"hr","female",2016),
+				new Employee("michel",26,950000,"tech","male",2013),
+				new Employee("ram",37,48000,"tech","male",2014),
+				new Employee("agnes",29,73000,"ops","female",2017),
+				new Employee("jessica",30,65000,"ops","female",2013),
+				new Employee("julie",31,56000,"ops","female",2017),
+				new Employee("xiaodong",21,50600,"ops","male",2019),
+				new Employee("liping",32,50300,"tech","female",2013),
+				new Employee("garry",23,40000,"tech","male",2014),
+				new Employee("harry",40,170708,"tech","female",2017));
+				
+		System.out.println("1.Get details of highest paid employee");
+				
+		method1(empList);
+		
+		System.out.println("2.list Of Employee Who Joined After 2014");
+		
+		method2(empList);
+	    
+		System.out.println("3.no Of Male And Female Employee");
+		
+		method3(empList);
+	
+		System.out.println("4.avgSalary");
+		method4(empList);
+		
+		method5(empList);
+	}
+	static void method1(List<Employee>empList) {
+		String nameOfHighestPaidEmployee=empList.stream().collect(Collectors.maxBy(Comparator.comparing(Employee::getSalary))).get().getName();
+System.out.println(nameOfHighestPaidEmployee);
+	}
+	
+	static void method2(List<Employee>empList) {
+		List<Employee>listOfEmployeeWhoJoinedAfter2014=
+				empList.stream().
+				filter(emp->emp.getYearOfJoining()>2014).
+				collect(Collectors.toList());
+		System.out.println(listOfEmployeeWhoJoinedAfter2014);
+
+	}
+	
+	static void method3(List<Employee>empList) {
+		Map<String,Long>noOfMaleAndFemaleEmployee=
+				empList.stream().
+				
+				collect(Collectors.groupingBy(Employee::getGender,Collectors.counting()));
+		System.out.println(noOfMaleAndFemaleEmployee);
+
+	}
+	
+	static void method4(List<Employee>empList) {
+		Double avgSalary=
+				empList.stream().
+				collect(Collectors.averagingDouble(Employee::getSalary));
+		System.out.println(avgSalary);
+
+	}
+	static void method5(List<Employee>empList) {
+		List<String>nameOfAllDepartments=empList.stream()
+				.map(Employee::getDepartment).distinct().collect(Collectors.toList());
+		System.out.println(nameOfAllDepartments);
+		
+
+	}
+	
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Highest salary
+		System.out.println("1.Get details of highest paid employee");
+		method1(empList);
+		
+		//list Of Employee Who Joined After 2014
+		System.out.println("2. list Of Employee Who Joined After 2014");
+		method2(empList);
+		//No Of Male And Female Employee
+		System.out.println("3.no Of Male And Female Employee");
+		method3(empList);
+		//4.avgSalary
+		System.out.println("4.avgSalary");
+		method4(empList);
+		//5.display only department
+		System.out.println("5.display only department");
+		method5(empList);
+}
+private static void method1(List<Employee1> empList) {
+	String highest=empList.stream().collect(Collectors.maxBy(Comparator.comparing(Employee1::getSalary))).get().getName();
+	System.out.println(highest);	
+}
+private static void method2(List<Employee1> empList) {
+	List<Employee1>WhoJoinedafter2014=empList.stream().filter(emp->emp.getJoined()>2014).collect(Collectors.toList());
+	System.out.println(WhoJoinedafter2014);	
+}
+private static void method3(List<Employee1> empList) {
+	Map<String, Long>gender=empList.stream().collect(Collectors.groupingBy(Employee1::getGender,Collectors.counting()));
+	System.out.println(gender);	
+}
+private static void method4(List<Employee1> empList) {
+	Double avgSalary=empList.stream().collect(Collectors.averagingDouble(Employee1::getSalary));
+	System.out.println(avgSalary);	
+}
+private static void method5(List<Employee1> empList) {
+	List<String> department=empList.stream().map(Employee1::getDepartment).distinct().collect(Collectors.toList());
+	System.out.println(department);
+	}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+30)++Read and write file++
+package interviewquestions;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileIO {
+	  public static void main(String[] args) {
+
+	    String[] names = {"John", "Carl", "Jerry"};
+	    try {
+	      BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+	      writer.write("Writing to a file.");
+	      writer.write("\nHere is another line.");
+	      
+	      for (String name : names) {
+	        writer.write("\n" + name);
+	      }
+	      writer.close();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
+	    
+	    try {
+	      BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
+	      String line;
+	      while((line = reader.readLine()) != null) {
+	        System.out.println(line);
+	      }
+	      reader.close();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
+	  }
+	}
+	
+31)++Multithreading++
+1)by extending thread
+// Java code for thread creation by extending
+// the Thread class
+class MultithreadingDemo extends Thread {
+	public void run()
+	{
+		try {
+			// Displaying the thread that is running
+			System.out.println(
+				"Thread " + Thread.currentThread().getId()
+				+ " is running");
+		}
+		catch (Exception e) {
+			// Throwing an exception
+			System.out.println("Exception is caught");
+		}
+	}
+}
+
+// Main Class
+public class Multithread {
+	public static void main(String[] args)
+	{
+		int n = 8; // Number of threads
+		for (int i = 0; i < n; i++) {
+			MultithreadingDemo object
+				= new MultithreadingDemo();
+			object.start();
+		}
+	}
+}
+2)Implmenting
+// Java code for thread creation by implementing
+// the Runnable Interface
+class MultithreadingDemo implements Runnable {
+	public void run()
+	{
+		try {
+			// Displaying the thread that is running
+			System.out.println(
+				"Thread " + Thread.currentThread().getId()
+				+ " is running");
+		}
+		catch (Exception e) {
+			// Throwing an exception
+			System.out.println("Exception is caught");
+		}
+	}
+}
+
+// Main Class
+class Multithread {
+	public static void main(String[] args)
+	{
+		int n = 8; // Number of threads
+		for (int i = 0; i < n; i++) {
+			Thread object
+				= new Thread(new MultithreadingDemo());
+			object.start();
+		}
+	}
+}
+
+32)Exceptional
+e1)
+public class ExceptionExample1 {
+public static void main(String[] args) {
+//	String str=null;
+//	System.out.println(str.length());
+	try {
+		int a=30;
+		int b=0;
+		int c=a/b;
+		System.out.println("result"+c);
+	}
+	catch(ArithmeticException e) {
+		System.out.println("cant divide a number by zero");
+	}try {
+
+		int num=Integer.parseInt("s:AshokIT");
+		System.out.println(num);
+	}
+	catch(NumberFormatException e) {
+		System.out.println("Number format Exception");
+	}
+	try {
+		int a[]=new int[5];
+		a[7]=9;
+	}catch(ArrayIndexOutOfBoundsException e) {
+		System.out.println("Array Index out of bounds");
+	}
+}
+}
+e2)
+public class Finally4 {
+public static void main(String[] args) {
+	try {
+		int num=Integer.parseInt("ASHOKIT");
+		System.out.println(num);
+	}finally{System.out.println("finally is always excecuted");
+	
+	}
+}
+
+e3)
+public class InMethodTry5 {
+public static void main(String[] args) {
+	try {
+		avg();
+	}finally {
+		System.out.println("caught");
+	}
+}
+
+ static void avg() throws ArithmeticException{
+	 System.out.println("Inside avg function");
+	 throw new ArithmeticException("Example");
+ }
+}
+
+e4)
+public class MultiCatch2 {
+
+	public static void main(String[] args) {
+		try {
+			int num=Integer.parseInt("ASHOKIT");
+			System.out.println(num);
+		}catch(NumberFormatException e) {
+			System.out.println("Number Format Exception");
+		}catch(Exception e) {
+			System.out.println("Handled");
+		}System.out.println("other statement");
+	}
+}
+
+e5)
+public class ThrowE3 {
+ static void age() {
+try {
+	throw new ArithmeticException("Example");
+}
+catch(ArithmeticException e) {
+	System.out.println("Exception caught");
+}
+}
+ public static void main(String[] args) {
+		age();
+	}
+}
+33)Infinity series://5,25,30,125,130,625,630...
+import java.util.*;
+public class Main
+{
+    public static void main(String [] args)
+    {
+        //creating object of Scanner class 
+        Scanner s = new Scanner(System.in);
+        //Taking input of number of elements in the series
+        System.out.println("Enter the value of number of terms ");
+        int n = s.nextInt();
+        int result = 5;
+        System.out.print(result);
+        //for loop to print the series
+        for (int i = 1; i <n; i++) 
+        {
+            result *=5; 
+            System.out.print(" "+result);
+        } 
+    }
+}
+34)++JaVaPraGR(ChangeCase)++
+public class changeCase {    
+    public static void main(String[] args) {    
+            
+        String str1="Great Power";    
+        StringBuffer newStr=new StringBuffer(str1);    
+            
+        for(int i = 0; i < str1.length(); i++) {    
+                
+            //Checks for lower case character    
+            if(Character.isLowerCase(str1.charAt(i))) {    
+                //Convert it into upper case using toUpperCase() function    
+                newStr.setCharAt(i, Character.toUpperCase(str1.charAt(i)));    
+            }    
+            //Checks for upper case character    
+            else if(Character.isUpperCase(str1.charAt(i))) {    
+                //Convert it into upper case using toLowerCase() function    
+                newStr.setCharAt(i, Character.toLowerCase(str1.charAt(i)));    
+            }    
+        }    
+        System.out.println("String after case conversion : " + newStr);    
+    }    
+}
+
+35)++LeapYear++
+
+public class LeapYear {
+	boolean isLeapYr(int y)  
+	{  
+	// if condition that handles  
+	// the century year  
+	if((y % 100) == 0)  
+	{  
+	    if((y % 400) == 0)  
+	    {  
+	        return true;  
+	    }  
+	    else  
+	    {  
+	        return false;  
+	    }  
+	  
+	}    
+	// if condition that handles the  
+	// non century year  
+	if((y % 4) == 0)  
+	{  
+	    return true;  
+	}    
+	return false;  
+	}    
+	// main method  
+	public static void main(String argvs[])  
+	{  
+	// creating an object of the class LeapYear  
+	LeapYear obj = new LeapYear();  
+	  
+	// input 1  
+	int year = 1996;  	  
+	if(obj.isLeapYr(year))  
+	{  
+	    System.out.println("The year " + year + " is a leap year.");  
+	}  
+	else  
+	{  
+	    System.out.println("The year " + year + " is not a leap year.");  
+	}  
+	  
+	System.out.println();    
+	}  
+	}  
+	
+36)++reverse a string using recursion++
+
+	class StringReverse
+{
+    /* Function to print reverse of the passed string */
+    void reverse(String str)
+    {
+        if ((str==null)||(str.length() <= 1))
+           System.out.println(str);
+        else
+        {
+            System.out.print(str.charAt(str.length()-1));
+            reverse(str.substring(0,str.length()-1));
+        }
+    }
+     
+    /* Driver program to test above function */
+    public static void main(String[] args) 
+    {
+        String str = "Geeks for Geeks";
+        StringReverse obj = new StringReverse();
+        obj.reverse(str);
+    }    
+}
+36)++RecursionReverseString++
+public class RecursionReverseString {
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		String s=scan.next();
+		System.out.println(reverseString(s,"",s.length()-1));
+	}
+
+	private static String reverseString(String s, String r, int i) {
+		if(i<0) {
+			return r;
+		}
+		return reverseString(s,r+s.charAt(i),i-1);
+		
+	}
+37)++RecursionReverseStringPalindrom++
+public class RecursionReverseStringPalindrom {
+	public static void main(String[] args) {
+		String s="JAVA";
+		System.out.println(isPalindrom(s,0,s.length()-1));
+	}
+
+
+		static boolean isPalindrom(String s,int i,int j) {
+			if(s.charAt(i)!=s.charAt(j)) {
+				return false;
+			}
+			if(j<=i) {
+			return true;
+			}
+			return isPalindrom(s,i+1,j-1);
+		}
+	}
+37)++ArraytoArrayList++
+import java.util.*;
+import java.util.stream.Collectors;
+public class ArraytoArrayList {
+public static void main(String[] args) {
+	String[] str= {"hello","hi","ja"};
+	List l=Arrays.asList(str);
+	System.out.println(l);
+	int[] intArray = {10, 20, 30, 40};
+
+    ArrayList<Integer> integerArray =
+        (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());
+
+    System.out.println(integerArray);
+    
+    int[] intArray1 = {10, 20, 30, 40};
+    ArrayList<Integer>integerArray2=(ArrayList<Integer>)Arrays.stream(intArray1).boxed().collect(Collectors.toList());
+    System.out.println(integerArray2);
+}
+}
+
+39)++Split++
+import java.util.ArrayList;
+
+class Split {
+ 
+  // Function to split the array
+  static ArrayList<ArrayList<Integer>> divideArray(int nums[], int K, int N) {
+    ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+    ArrayList<Integer> temp = new ArrayList<Integer>();
+    for (int i = 0; i < N; i++) {
+      temp.add(nums[i]);
+      if (((i + 1) % K) == 0) {
+        ans.add(temp);
+        temp = new ArrayList<Integer>();
+      }
+    }
+    // If last group doesn't have enough
+    // elements then add 0 to it
+    if (temp.size() != 0) {
+      int a = temp.size();
+      while (a != K) {
+        temp.add(0);
+        a++;
+      }
+      ans.add(temp);
+    }
+    return ans;
+  }
+ 
+  // Function to print answer
+  static void printArray(ArrayList<ArrayList<Integer>> a) {
+    int n = a.size();
+    for (int i = 0; i < n; i++) {
+      System.out.print("[ ");
+      for (int j = 0; j < a.get(i).size(); j++)
+        System.out.print(a.get(i).get(j) + " ");
+      System.out.print("]");
+    }
+  }
+ 
+  // Driver Code
+  public static void main(String args[]) {
+    int nums[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    int N = nums.length;
+    int K = 3;
+    ArrayList<ArrayList<Integer>> ans = divideArray(nums, K, N);
+    printArray(ans);
+  }
+}
+
+40)++Convertcamelcasestringtosnakecaseinjava++
+public class Convertcamelcasestringtosnakecaseinjava {
+	// Function to convert camel case
+    // string to snake case string
+    public static String camelToSnake(String str)
+    {
+ 
+        // Empty String
+        String result = "";
+ 
+        // Append first character(in lower case)
+        // to result string
+        char c = str.charAt(0);
+        result = result + Character.toLowerCase(c);
+ 
+        // Traverse the string from
+        // ist index to last index
+        for (int i = 1; i < str.length(); i++) {
+ 
+            char ch = str.charAt(i);
+ 
+            // Check if the character is upper case
+            // then append '_' and such character
+            // (in lower case) to result string
+            if (Character.isUpperCase(ch)) {
+                result = result + '_';
+                result
+                    = result
+                      + Character.toLowerCase(ch);
+            }
+ 
+            // If the character is lower case then
+            // add such character into result string
+            else {
+                result = result + ch;
+            }
+        }
+ 
+        // return the result
+        return result;
+    }
+ 
+    public static void main(String args[])
+    {
+        // Given string str
+        String str = "GeeksForGeeks";
+ 
+        // Print the modified string
+        System.out.print(camelToSnake(str));
+    }
+
+}
+
+41)++immutable class++
+**** CLASS 1****
+import java.util.HashMap;
+	import java.util.Map;
+	 
+	// Class 1
+	// An immutable class
+	final class Student {
+	 
+	    // Member attributes of final class
+	    private final String name;
+	    private final int regNo;
+	    private final Map<String, String> metadata;
+	 
+	    // Constructor of immutable class
+	    // Parameterized constructor
+	    public Student(String name, int regNo,
+	                   Map<String, String> metadata)
+	    {
+	 
+	        // This keyword refers to current instance itself
+	        this.name = name;
+	        this.regNo = regNo;
+	 
+	        // Creating Map object with reference to HashMap
+	        // Declaring object of string type
+	        Map<String, String> tempMap = new HashMap<>();
+	 
+	        // Iterating using for-each loop
+	        for (Map.Entry<String, String> entry :
+	             metadata.entrySet()) {
+	            tempMap.put(entry.getKey(), entry.getValue());
+	        }
+	 
+	        this.metadata = tempMap;
+	    }
+	 
+	    // Method 1 
+	    public String getName() { return name; }
+	 
+	    // Method 2 
+	    public int getRegNo() { return regNo; }
+	   
+	    // Note that there should not be any setters 
+	 
+	    // Method 3
+	    // User -defined type
+	    // To get meta data
+	    public Map<String, String> getMetadata()
+	    {
+	 
+	        // Creating Map with HashMap reference
+	        Map<String, String> tempMap = new HashMap<>();
+	 
+	        for (Map.Entry<String, String> entry :
+	             this.metadata.entrySet()) {
+	            tempMap.put(entry.getKey(), entry.getValue());
+	        }
+	        return tempMap;
+	    }
+	
+}
+****MAIN CLASS2***
+class GFG {
+	 
+    // Main driver method
+    public static void main(String[] args)
+    {
+ 
+        // Creating Map object with reference to HashMap
+        Map<String, String> map = new HashMap<>();
+ 
+        // Adding elements to Map object
+        // using put() method
+        map.put("1", "first");
+        map.put("2", "second");
+ 
+        Student s = new Student("ABC", 101, map);
+ 
+        // Calling the above methods 1,2,3 of class1
+        // inside main() method in class2 and
+        // executing the print statement over them
+        System.out.println(s.getName());
+        System.out.println(s.getRegNo());
+        System.out.println(s.getMetadata());
+ 
+        // Uncommenting below line causes error
+        // s.regNo = 102;
+ 
+        map.put("3", "third");
+        // Remains unchanged due to deep copy in constructor
+        System.out.println(s.getMetadata());
+        s.getMetadata().put("4", "fourth");
+        // Remains unchanged due to deep copy in getter
+        System.out.println(s.getMetadata());
+    }
+}
+42)++CountEvenNumbers,suffix,limit++
+public class Count {
+public static void main(String[] args) {
+//program1
+List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+long count1 = numbers.stream().filter(i -> i%2 != 0).count();
+System.out.println("count after filtering odd numbers = " + count1);
+
+//program2
+List<String> stringsList = Arrays.asList("apple", "orange");
+	String joinWithDelimiterSuffixPrefix = stringsList.stream().collect(Collectors.joining("s ", "[", "]"));
+	System.out.println("joining(delimiter, suffix, prefix) string : " + joinWithDelimiterSuffixPrefix);
+    
+	//program3 limit 5
+	Set<Integer>set=new HashSet<>();
+	numbers.stream().limit(5).forEach(x->System.out.println(x));
+}
+}
+
+43)++Given an employee list,sort employees based on their salaries in desc order?\n++
+System.out.println("Given an employee list,sort employees based on their salaries in desc order?\n");
+		List<Employee>descorder=empList.stream().sorted((o1,o2)->(int)(o2.getSalary()-o1.getSalary()))
+		.collect(Collectors.toList());
+		System.out.println(descorder);
+		
+44)++Fetch top 3 salaried employee details?++
+	//Fetch top 3 salaried employee details?
+	List<Employee>limit=empList.stream().sorted((o1,o2)->(int)(o2.getSalary()-o1.getSalary())).limit(3).collect(Collectors.toList());
+	System.out.println(limit);
+	
+45)++fetch all employees having salary less than 3rd highest salary?++
+		//fetch all employees having salary less than 3rd highest salary?
+		List<Employee>havinglessthan3rdhighestsalary=empList.stream().sorted((o1,o2)->(int)(o2.getSalary()-o1.getSalary())).skip(3).collect(Collectors.toList());
+		System.out.println(havinglessthan3rdhighestsalary);
+		
+46)++find sum all elements in an array using java 8?
+		System.out.println("find sum all elements in an array using java 8?");
+		int[]array= {1,2,4};
+		int sum=Arrays.stream(array).sum();
+		System.out.println(sum);
+
+47)++find sum all even elements in an array using java 8++	
+		System.out.println("find sum all even elements in an array using java 8?");
+		int evenSum=Arrays.stream(array).filter(x->x%2==0).sum();
+		System.out.println(evenSum);
+48)++find count all even elements in an array using java 8?		
+		System.out.println("find count all even elements in an array using java 8?");
+		long evenCount=Arrays.stream(array).filter(x->x%2==0).count();
+		System.out.println(evenCount);	
+		
+49)++LongestWord++
+	String[]strArray= {"java","Hibernate","Springboot","microservices"};
+	String longestString=Arrays.stream(strArray).reduce((word1,word2)->word1.length()>word2.length()?word1:word2).get();
+	System.out.println(longestString);
+	
+50)++Convert first half of the string in lowercase and second half in upper case++
+
+Input:"This is Java Program This is Java Program"
+
+	String str="This is Java Program This is Java Program";
+	
+	int mid=str.length()/2;
+	String lowerCase="";
+	String upperCase="";
+	for(int i=0;i<str.length();i++) {
+		if(i<mid) {
+			lowerCase=lowerCase+Character.toLowerCase(str.charAt(i));
+		}else {
+			upperCase=upperCase+Character.toUpperCase(str.charAt(i));
+		}
+	}
+	System.out.println(lowerCase+upperCase);
+	
+51)++Count Strings whose length is greater than 3 in List++
+	List<String>list=Arrays.asList("java","php","angular","python","R","C++");
+		List<String> count=list.stream().filter(e->e.length()>3).collect(Collectors.toList());
+	System.out.println(count);
+	
+	
+52)++random random integers within a specific range in java?++
+Random random=new Random();
+	random.ints(1,100).limit(10).sorted().forEach(x->System.out.println(x));
+	
+53)++descending order using stream++
+	List<Integer>list=Arrays.asList(1,4,5,6,7,8,9);
+	List<Integer>list1=list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+	System.out.println(list1);
+	
+54)++ 
+String str = "AABBCDEEF";
+Map<Character, Long> charCountMap = str.chars()
+.mapToObj(c -> (char) c)
+.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+char unpairedChar = charCountMap.entrySet().stream()
+.filter(entry -> entry.getValue() % 2 != 0).findFirst()
+.map(Map.Entry::getKey).orElseThrow(() -> new RuntimeException("No unpaired character found"));
+System.out.println("Unpaired character: " + unpairedChar);
+MYSQL
+1)++Find Names of the Employees Whose Department Have Number of Employees Less than 2++
+
+	SELECT EMPLOYEE_NAME, DEPARTMENT_NAME
+	FROM COMPANY WHERE DEPARTMENT_NAME IN
+	(SELECT DEPARTMENT_NAME FROM COMPANY GROUP
+	BY DEPARTMENT_NAME HAVING COUNT(*)<2);
+
+2)++Second highset salary++
+SELECT MAX(salary) 
+FROM employee 
+WHERE salary NOT IN (SELECT MAX(salary) FROM employee);
+
+3)highset salary
+SELECT *
+FROM employee
+WHERE
+    empsalary = (SELECT DISTINCT empsalary
+        FROM employee
+        ORDER BY empsalary DESC
+     LIMIT 1 OFFSET 0
+     )
+LIMIT 1;
+
+4)++This is the Query for to find nth Salary++
+SELECT DISTINCT Salary FROM tblemployee ORDER BY Salary DESC LIMIT 1 OFFSET (n-1)
+
+@Query("SELECT p FROM Employee e WHERE CONCAT(e.name, e.salary, e.address, e.department) LIKE %?1%")
+public List<Employee> search(String keyword);
+
+
+	
+Student Entity
+@Entity
+@Table(name="student")
+@Data
+public class Student {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer Id;
+	private String about;
+	private String email;
+	private String name;
+	private Integer number;
+}
+
+@Repository
+public interface StudentRepo extends JpaRepository<Student,Integer>{
+
+}
+
+@Service
+public interface StudentService {
+
+	public List<StudentDto>getStudent();
+	public StudentDto createStudent(StudentRequest request);
+	public StudentDto getById(Integer id,StudentRequest request);
+	public StudentDto update(Integer id,StudentRequest request);
+	public String delete(Integer id);
+}
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+	@Autowired
+	private StudentRepo repo;
+	@Override
+	public List<StudentDto> getStudent() {
+		List<Student>students=repo.findAll();
+		return students.stream().map(st->{
+			StudentDto dto=new StudentDto();
+			dto.setId(st.getId());
+			dto.setAbout(st.getAbout());
+			dto.setEmail(st.getEmail());
+			dto.setName(st.getName());
+			dto.setNumber(st.getNumber());
+			return dto;
+		}).collect(Collectors.toList());
+	}
+	@Override
+	public StudentDto createStudent(StudentRequest request) {//request to entity
+		Student st=new Student();
+		st.setAbout(request.getAbout());
+		st.setEmail(request.getEmail());
+		st.setName(request.getName());
+		st.setNumber(request.getNumber());
+		repo.save(st);
+		//entity to dto
+		StudentDto dto=new StudentDto();
+		dto.setId(st.getId());
+		dto.setEmail(st.getEmail());
+		dto.setAbout(st.getAbout());
+		dto.setName(st.getName());
+		dto.setNumber(st.getNumber());
+		return dto;
+	}
+	@Override
+	public StudentDto getById(Integer id,StudentRequest request) {
+		Student st=repo.findById(id).get();
+		StudentDto dto=new StudentDto();
+		dto.setAbout(st.getAbout());
+		dto.setEmail(st.getEmail());
+		dto.setId(st.getId());
+		dto.setName(st.getName());
+		dto.setNumber(st.getNumber());
+		return dto;				
+	}
+	@Override
+	public StudentDto update(Integer id, StudentRequest request) {
+		Student st=repo.findById(id).get();
+		st.setAbout(request.getAbout());
+		st.setEmail(request.getEmail());
+		st.setName(request.getName());
+		st.setNumber(request.getNumber());
+		repo.save(st);
+		//entity to dto
+		StudentDto dto=new StudentDto();
+		dto.setAbout(st.getAbout());
+		dto.setEmail(st.getEmail());
+		dto.setName(st.getName());
+		dto.setNumber(st.getNumber());
+		dto.setId(st.getId());
+		return dto;
+	}
+	@Override
+	public String delete(Integer id) {
+		Student student=repo.findById(id).get();
+		repo.delete(student);
+		return "deleted";
+	}
+
+}
+@Data
+public class StudentDto {
+	private Integer Id;
+	private String about;
+	private String email;
+	private String name;
+	private Integer number;
+}
+
+@Data
+public class StudentRequest {
+	private Integer Id;
+	private String about;
+	private String email;
+	private String name;
+	private Integer number;
+}
+@RestController
+public class StudentController {
+
+	@Autowired
+	private StudentService service;
+	
+	@GetMapping("/get")
+	public List<StudentDto>getStudent(){
+		return service.getStudent();
+	}
+	@PostMapping("/student")
+	public StudentDto createStudent(@RequestBody StudentRequest request) {
+	return service.createStudent(request);
+	}
+	
+	@GetMapping("/get/{id}")
+	public StudentDto getById(@PathVariable Integer id,@RequestBody StudentRequest request) {
+		return service.getById(id, request);
+	}
+	
+	@PutMapping("/student/{id}")
+	public StudentDto update(@PathVariable Integer id,@RequestBody StudentRequest request) {
+		request.setId(id);
+		StudentDto update=service.update(id, request);
+		return update;
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		service.delete(id);
+		return "deleted id";
+		
+	}
+}
+
+practise on JPQL
+
+9448986152
+8310097951
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
